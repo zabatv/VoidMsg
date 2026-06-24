@@ -6,6 +6,7 @@ import { getSocket } from '../socket.js';
 import { parseMessage } from '../messageParser.js';
 import { applyTheme, resetTheme } from '../themeEngine.js';
 import { startRain, stopRain } from '../rainEffect.js';
+import { startDust, stopDust } from '../dustEffect.js';
 
 function Avatar({ userId, name, hasAvatar, size = 'normal' }) {
   const cls = size === 'sm' ? 'avatar-sm' : 'avatar';
@@ -144,6 +145,19 @@ export default function ChatView() {
       sock.emit('themeChange', { conversationId: convId, themeName: 'stoprain', num: 0 });
       stopRain();
       setRainOn(false);
+      setText('');
+      return;
+    }
+
+    // Пыль
+    if (lowerText === 'dust' && !file) {
+      startDust();
+      setText('');
+      return;
+    }
+
+    if (lowerText === 'stopdust' && !file) {
+      stopDust();
       setText('');
       return;
     }

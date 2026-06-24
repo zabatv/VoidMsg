@@ -1,0 +1,100 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["messenger"]
+}
+
+model User {
+  @@schema("messenger")
+  id             Int                       @id @default(autoincrement())
+  email          String                    @unique
+  passwordHash   String
+  name           String
+  avatar         Bytes?
+  avatarMimeType String?
+  theme          String?
+  createdAt      DateTime                  @default(now())
+  messages       Message[]
+  participants   ConversationParticipant[]
+  posts          Post[]
+  comments       Comment[]
+}
+
+model Conversation {
+  @@schema("messenger")
+  id           Int                       @id @default(autoincrement())
+  createdAt    DateTime                  @default(now())
+  updatedAt    DateTime                  @updatedAt
+  participants ConversationParticipant[]
+  messages     Message[]
+}
+
+model ConversationParticipant {
+  @@schema("messenger")
+  id             Int          @id @default(autoincrement())
+  userId         Int
+  conversationId Int
+  lastReadAt     DateTime     @default(now())
+  lastMessageAt  DateTime     @default(now())
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, conversationId])
+  @@index([userId])
+  @@index([conversationId])
+}
+
+model Message {
+  @@schema("messenger")
+  id             Int          @id @default(autoincrement())
+  conversationId Int
+  authorId       Int
+  text           String?
+  type           String       @default("text")
+  createdAt      DateTime     @default(now())
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  author         User         @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  attachments    Attachment[]
+
+  @@index([conversationId, createdAt(sort: Desc)])
+}
+
+model Attachment {
+  @@schema("messenger")
+  id        Int     @id @default(autoincrement())
+  messageId Int
+  type      String  @default("image")
+  mimeType  String
+  fileName  String
+  size      Int
+  data      Bytes
+  message   Message @relation(fields: [messageId], references: [id], onDelete: Cascade)
+}
+
+model Post {
+  @@schema("messenger")
+  id            Int      @id @default(autoincrement())
+  authorId      Int
+  text          String
+  image         Bytes?
+  imageMimeType String?
+  createdAt     DateTime @default(now())
+  author        User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  comments      Comment[]
+}
+
+model Comment {
+  @@schema("messenger")
+  id        Int      @id @default(autoincrement())
+  postId    Int
+  authorId  Int
+  text      String
+  createdAt DateTime @default(now())
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+}

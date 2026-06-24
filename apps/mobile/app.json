@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "VoidMsg",
+    "slug": "void-msg",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "backgroundColor": "#1a1a2e"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.voidmsg.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1a1a2e"
+      },
+      "package": "com.voidmsg.app"
+    },
+    "plugins": [
+      "expo-image-picker"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Тёплый сумрак (Дождь)",
+  "bg": "#18141A",
+  "surface": "rgba(40, 34, 45, 0.6)",
+  "surfaceHover": "rgba(60, 50, 65, 0.8)",
+  "border": "rgba(230, 190, 140, 0.15)",
+  "text": "#EBE3D9",
+  "textSecondary": "rgba(235, 227, 217, 0.55)",
+  "primary": "#D98A76",
+  "primaryText": "#1C181E",
+  "msgOther": "rgba(55, 48, 60, 0.5)",
+  "msgOtherText": "#EBE3D9",
+  "msgMine": "#D98A76",
+  "msgMineText": "#1C181E",
+  "radius": 14,
+  "wallpaper": true
+}

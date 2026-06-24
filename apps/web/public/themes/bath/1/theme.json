@@ -1,0 +1,17 @@
+{
+  "name": "Ванная при свечах",
+  "bg": "#21263D",
+  "surface": "rgba(35, 42, 66, 0.65)",
+  "surfaceHover": "rgba(55, 65, 95, 0.8)",
+  "border": "rgba(231, 171, 187, 0.15)",
+  "text": "#E6DEE8",
+  "textSecondary": "rgba(230, 222, 232, 0.55)",
+  "primary": "#E38B8B",
+  "primaryText": "#1C1F30",
+  "msgOther": "rgba(48, 54, 82, 0.6)",
+  "msgOtherText": "#E6DEE8",
+  "msgMine": "#C48BB5",
+  "msgMineText": "#1C1F30",
+  "radius": 14,
+  "wallpaper": true
+}

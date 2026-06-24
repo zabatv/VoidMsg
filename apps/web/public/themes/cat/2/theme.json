@@ -1,0 +1,17 @@
+{
+  "name": "Розовый котик",
+  "bg": "#1a0a1a",
+  "surface": "rgba(255,150,200,0.08)",
+  "surfaceHover": "rgba(255,150,200,0.15)",
+  "border": "rgba(255,150,200,0.15)",
+  "text": "#ffe0f0",
+  "textSecondary": "rgba(255,180,210,0.5)",
+  "primary": "#ff8ec4",
+  "primaryText": "#1a0a1a",
+  "msgOther": "rgba(255,150,200,0.1)",
+  "msgOtherText": "#ffe0f0",
+  "msgMine": "#ff8ec4",
+  "msgMineText": "#1a0a1a",
+  "radius": 20,
+  "wallpaper": true
+}

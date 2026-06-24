@@ -1,0 +1,17 @@
+{
+  "name": "Закат на крыше",
+  "bg": "#1C2129",
+  "surface": "rgba(28, 33, 41, 0.65)",
+  "surfaceHover": "rgba(45, 52, 65, 0.8)",
+  "border": "rgba(220, 130, 80, 0.2)",
+  "text": "#EEF2F5",
+  "textSecondary": "rgba(238, 242, 245, 0.55)",
+  "primary": "#D3885E",
+  "primaryText": "#1C2129",
+  "msgOther": "rgba(35, 40, 50, 0.6)",
+  "msgOtherText": "#EEF2F5",
+  "msgMine": "#78A69A",
+  "msgMineText": "#1C2129",
+  "radius": 12,
+  "wallpaper": true
+}
